@@ -1,0 +1,69 @@
+    1  node --version
+    2  npm -v
+    3  ls
+    4  cd xchng-financial-app/
+    5  ls
+    6  npm -v
+    7  git init
+    8  ls
+    9  npm init -y
+   10  npm install express pg bcryptjs jsonwebtoken joi dotenv axios
+   11  npm install --save-dev nodemon
+   12  npm install --save-dev nodemon
+   13  explorer
+   14  cd ..
+   15  npm install -g typescript
+   16  cd xchng-financial-app/
+   17  ls
+   18  clear
+   19  ls
+   20  npx create-react-app frontend
+   21  cd frontend
+   22  npm start
+   23  npx create-react-app frontend
+   24  cd frontend
+   25  ls
+   26  mkdir frontend
+   27  cd frontend/
+   28  npm start
+   29  ]cd ,,
+   30  cd ..
+   31  npx create-react-app frontend
+   32  ls
+   33  npx create-react-app frontend
+   34  ls
+   35  npx create-react-app frontend
+   36  npm install --lts
+   37  nvm use --lts
+   38  nvm
+   39  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+   40  source ~/.bashrc
+   41  source ~/.zshrc
+   42  nvm --version
+   43  npx create-react-app frontend
+   44  nvm
+   45  pip install -r requirements.txt
+   46  python --version
+   47  pip
+   48  pip
+   49  where python
+   50  where python3
+   51  pip3
+   52  pip3#
+   53  pip
+   54  pip
+   55  python
+   56  pip
+   57  pip
+   58  where python
+   59  where python3
+   60  pip
+   61  python -m pip install --upgrade pip
+   62  python3 -m pip install --upgrade pip
+   63  python3 -m pip install --upgrade pip
+   64  python -m pip install --upgrade pip
+   65  python
+   66  python3
+   67  python3 
+   68  python3 --version
+   69  history > 1.txt

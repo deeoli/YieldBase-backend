@@ -1,0 +1,33 @@
+site: rightmove
+
+start_url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E93917"
+
+selectors:
+  item: "div.propertyCard-details"
+
+  fields:
+    # Core fields from listing card
+    title:         "div[data-testid='property-address']"
+    address:       "div[data-testid='property-address']"
+    price:         "a[data-testid='property-price']"
+    description:   "p[data-testid='property-description']"
+    link:          "a.propertyCard-anchor"
+
+    # Media
+    image:         "img[data-testid^='property-img-']:first-of-type"
+    images:        "img[data-testid^='property-img-']"
+
+    # Feature list (fallback parsed in extract_data)
+    bedrooms:      "ul[data-testid='property-features'] li:nth-of-type(1)"
+    bathrooms:     "ul[data-testid='property-features'] li:nth-of-type(2)"
+    tenure:        "ul[data-testid='property-features'] li"
+    area_sqft:     "ul[data-testid='property-features'] li"
+
+    # Optional metadata (often requires detail page)
+    postcode:      "address.propertyCard-addr"
+    external_url:  "a.propertyCard-anchor"
+
+    # Derived in detail scraper — not used here:
+    # yield:       (calculated or left blank)
+    # floorplan:   (via detail page <a>)
+    # gallery:     (same as images)
