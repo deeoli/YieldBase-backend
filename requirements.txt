@@ -1,0 +1,18 @@
+# requirements.txt
+requests
+beautifulsoup4
+lxml
+aiohttp
+httpx
+pydantic
+schedule
+python-dotenv
+fake-useragent
+tqdm
+playwright
+httpx
+openai        # GPT-powered selector or summarizer
+fastapi       # If you want to expose data as an API
+uvicorn       # For serving FastAPI
+pymongo       # For MongoDB support
+# sqlalchemy    # If you prefer PostgreSQL

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+.idea/
+
+# Virtual environment
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+*.code-workspace
+*.history/
+settings.json
+
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/debug.log
+*.log
+wp-content/upgrade/
+wp-content/themes/*/node_modules/
+wp-content/plugins/*/node_modules/
+
+# Node.js (if used in WordPress theme/plugins)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs and databases
+*.log
+*.sqlite
+db.sqlite3
+
+# Generated files
+coverage/
+dist/
+build/

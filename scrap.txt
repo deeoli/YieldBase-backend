@@ -1,0 +1,61 @@
+wp-pass
+admin
+^6t*xucmvazuubxgs@
+
+App Pass2: TMZR rc3u L39R klKG yICZ EAHK
+App Pass2: WRbT O5PY NqWh aiUM bxso 78e7
+
+WP_URL = "http://localhost/propertyapp/wp-json/wp/v2/property"
+JWT_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L3Byb3BlcnR5YXBwIiwiaWF0IjoxNzUwMTczMjQ4LCJuYmYiOjE3NTAxNzMyNDgsImV4cCI6MTc1MDc3ODA0OCwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.veXQo-k_m43AwZu21ZM-jnlt1wwx5uvvb9JYDaKLpc8".strip()  # Replace with current one
+JWT_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L3Byb3BlcnR5YXBwIiwiaWF0IjoxNzUwMzM0MjMzLCJuYmYiOjE3NTAzMzQyMzMsImV4cCI6MTc1MDkzOTAzMywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.db2rUEubbmRXnQg2ecr0F9_CZgZk6j89bzB2-Qdrb2I".strip()
+================================================
+
+curl -X POST http://localhost/propertyapp/wp-json/jwt-auth/v1/token \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"^6t*xucmvazuubxgs@"}'
+
+
+
+=========================
+$ curl -X POST http://localhost/propertyapp/wp-json/jwt-auth/v1/token \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"^6t*xucmvazuubxgs@"}'
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L
+3Byb3BlcnR5YXBwIiwiaWF0IjoxNzUwMzM0MjMzLCJuYmYiOjE3NTAzMzQyMzMsImV4cCI6MTc1MDkzO
+TAzMywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.db2rUEubbmRXnQg2ecr0F9_CZgZk6j89bzB2-
+Qdrb2I","user_email":"deeoli22@gmail.com","user_nicename":"admin","user_display_
+name":"admin"}
+
+
+===============================
+curl -X POST http://localhost/propertyapp/wp-json/wp/v2/property \
+  -u admin:TMZR rc3u L39R klKG yICZ EAHK \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Test Property via API",
+    "status": "publish",
+    "meta": {
+      "price": "999999",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "address": "123 Example Street, Testville",
+      "availability": "available",
+      "department": "residential-sales"
+    },
+    "content": "This is a test property created via the REST API. Ignore this listing."
+  }'
+
+
+curl -X POST http://localhost/propertyapp/wp-json/wp/v2/ukproperty \
+  -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L3Byb3BlcnR5YXBwIiwiaWF0IjoxNzUwMzM0MjMzLCJuYmYiOjE3NTAzMzQyMzMsImV4cCI6MTc1MDkzOTAzMywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.db2rUEubbmRXnQg2ecr0F9_CZgZk6j89bzB2-Qdrb2I" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Test Property",
+    "status": "publish",
+    "meta": {
+      "price": 250000,
+      "address": "123 Test St",
+      "yield": 5.2,
+      "external_url": "https://example.com"
+    }
+  }'
