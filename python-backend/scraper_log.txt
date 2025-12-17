@@ -1,0 +1,657 @@
+[2025-06-21 12:58:10] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 12:59:01] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 12:59:12] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:02:05] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:02:25] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:02:30] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:02:32] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:02:34] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:02:40] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:02:44] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:11:03] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:11:30] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:11:34] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:12:57] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:13:28] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:13:46] ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+[2025-06-21 13:14:31] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:14:43] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:17:39] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:18:00] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:21:57] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:22:16] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:39:08] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:39:35] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:39:38] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:43:18] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:43:39] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 13:43:42] INFO - [\u2705] Rightmove property posted
+[2025-06-21 13:51:32] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:54:56] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:55:20] ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+[2025-06-21 13:56:31] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:57:26] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 13:59:53] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 14:00:58] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 14:01:51] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 14:40:02] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 14:42:03] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 14:42:08] INFO - [\u2705] Rightmove property posted: Warehouse Court, Woolwich Riverside, London, SE18
+[2025-06-21 14:42:25] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 14:42:28] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 14:42:42] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 14:42:51] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 14:43:02] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 14:43:19] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 14:43:21] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 14:43:30] INFO - [\u2705] Rightmove property posted: Wilton Crescent, Belgravia, London, SW1X, United Kingdom
+[2025-06-21 14:43:38] INFO - [\u2705] Rightmove property posted: Bayswater Road, London, W2
+[2025-06-21 14:43:52] INFO - [\u2705] Rightmove property posted: Eaton Place, London, SW1X
+[2025-06-21 14:44:03] INFO - [\u2705] Rightmove property posted: Glebe Place, London, SW3
+[2025-06-21 14:44:35] INFO - [\u2705] Rightmove property posted: Merton Lane, London, N6
+[2025-06-21 14:45:01] INFO - [\u2705] Rightmove property posted: Merton Lane, Highgate, London, N6
+[2025-06-21 14:45:04] INFO - [\u2705] Rightmove property posted: Avenue Road, NW8
+[2025-06-21 14:45:25] INFO - [\u2705] Rightmove property posted: Tregunter Road, London
+[2025-06-21 14:45:42] INFO - [\u2705] Rightmove property posted: United Kingdom
+[2025-06-21 14:46:01] INFO - [\u2705] Rightmove property posted: Tregunter Road, Chelsea, London, SW10, United Kingdom
+[2025-06-21 14:46:16] INFO - [\u2705] Rightmove property posted: Cadogan Place, Knightsbridge, London, SW1X
+[2025-06-21 14:46:28] INFO - [\u2705] Rightmove property posted: Piccadilly, Mayfair
+[2025-06-21 15:24:39] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 15:27:23] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 15:27:29] INFO - [\u2705] Rightmove property posted: Elmwood Road, London, SE24
+[2025-06-21 15:27:40] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 15:27:44] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 15:36:40] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 15:38:04] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 15:38:13] INFO - [\u2705] Rightmove property posted: Cranston Court, Shepherd's Bush, London, W12
+[2025-06-21 15:38:27] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 15:38:32] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 15:38:52] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 15:39:01] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 15:39:51] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 15:40:06] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 15:40:10] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 16:34:49] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 16:36:07] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 16:36:22] INFO - [\u2705] Rightmove property posted: Pinner View, Harrow
+[2025-06-21 16:36:28] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 16:36:32] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 16:36:41] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 16:36:45] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 16:36:54] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 16:36:59] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 16:37:00] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 16:37:09] INFO - [\u2705] Rightmove property posted: Wilton Crescent, Belgravia, London, SW1X, United Kingdom
+[2025-06-21 16:37:13] INFO - [\u2705] Rightmove property posted: Bayswater Road, London, W2
+[2025-06-21 16:37:19] INFO - [\u2705] Rightmove property posted: Eaton Place, London, SW1X
+[2025-06-21 16:37:22] INFO - [\u2705] Rightmove property posted: Glebe Place, London, SW3
+[2025-06-21 16:37:32] INFO - [\u2705] Rightmove property posted: Merton Lane, Highgate, London, N6
+[2025-06-21 16:37:58] INFO - [\u2705] Rightmove property posted: Merton Lane, London, N6
+[2025-06-21 16:45:46] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 16:46:47] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 16:47:01] INFO - [\u2705] Rightmove property posted: Lawrie Park Gardens, London
+[2025-06-21 16:47:20] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 16:47:29] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 16:47:59] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 16:48:21] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 16:48:48] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 17:02:42] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 17:04:17] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 17:04:29] INFO - [\u2705] Rightmove property posted: Kempe Road, London, NW6
+[2025-06-21 17:04:47] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 17:04:53] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 17:16:11] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 17:21:03] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 17:21:42] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 17:21:54] INFO - [\u2705] Rightmove property posted: Crane Way, Twickenham, TW2
+[2025-06-21 17:22:05] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 17:22:10] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 17:38:23] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 17:39:32] WARNING - socket.send() raised exception.
+[2025-06-21 17:39:32] WARNING - socket.send() raised exception.
+[2025-06-21 17:39:32] WARNING - socket.send() raised exception.
+[2025-06-21 17:39:32] WARNING - socket.send() raised exception.
+[2025-06-21 17:39:40] WARNING - socket.send() raised exception.
+[2025-06-21 17:39:45] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 17:40:51] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 17:40:51] ERROR - Exception for 'New Crane Wharf, Wapping E1W': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'The Knightsbridge Apartments, 199 Knightsbridge, London, SW7': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'One Hyde Park, Knightsbridge': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Avenue Road, St John's Wood, London, NW8, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Balfour Place, Mayfair, London, W1K': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Whistler Square, London, SW1W': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'One Hyde Park, Knightsbridge': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Wilton Crescent, Belgravia, London, SW1X, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Bayswater Road, London, W2': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Eaton Place, London, SW1X': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Glebe Place, London, SW3': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Merton Lane, London, N6': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Merton Lane, Highgate, London, N6': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Avenue Road, NW8': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Tregunter Road, Chelsea, London, SW10, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Tregunter Road, London': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Cadogan Place, Knightsbridge, London, SW1X': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Piccadilly, Mayfair': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Brick Street, Mayfair, London, England, W1J, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Brick Street, Mayfair, W1J': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Brick Street, Mayfair, London, W1J': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Brick Street, Mayfair, London, W1J': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'One Hyde Park, Knightsbridge, London, SW1X, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'The Broadway, London': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Holland Park, London, W11': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Knights House, Cheval Place, Knightsbridge, SW7, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Knightsbridge, Knightsbridge Gate, London, SW1X, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Knightsbridge Gate, 1 William Street, Knightsbridge, London, SW1X 7BF': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Knightsbridge Gate, Apartment 6, 55 Knightsbridge, SW1X': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Park Crescent, London, W1B': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Park Place Villas, Little Venice, London, W9': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Lowndes Square, London, SW1X': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Marlborough Place, St John's Wood, London, NW8, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Chester Square, London, SW1W': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Lowndes Square, London, SW1X': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'One Hyde Park, Knightsbridge': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Park Place Villas, Little Venice, London, W2, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Park Place Villas, Little Venice': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Chester Square, Belgravia, London, SW1W, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Chester Square, Belgravia, SW1W': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Park Place Villas, London, W2': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Cornwall Terrace, Regent's Park': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Winnington Road, London, N2': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Winnington Road, Hampstead, London, N2, United Kingdom': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'St. John's Wood, London, NW8': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Winnington Road, N2': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Queen's Gate, South Kensington SW7': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] ERROR - Exception for 'Thomas Earle House, Warwick Lane, London W14': float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\user\Documents\PropertyApp\daily_scraper.py", line 56, in run_scraper
+    if push_to_wordpress(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Documents\PropertyApp\ui\wordpress_push.py", line 33, in push_to_wordpress
+    "yield": float(listing.get("yield", 0)),
+             ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+[2025-06-21 17:40:51] INFO - \U0001f4ca Rightmove Summary - Scraped: 50, Uploaded: 0, Failed: 50
+[2025-06-21 17:40:51] INFO - \U0001f3c1 Daily Scraper Finished
+[2025-06-21 17:47:17] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 17:49:00] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 17:49:05] INFO - [\u2705] Rightmove property posted: Navigation Point, N17
+[2025-06-21 17:49:13] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 17:49:17] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 17:49:27] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 17:49:33] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 17:49:42] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 17:49:57] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 18:04:24] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 18:05:32] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 18:05:46] INFO - [\u2705] Rightmove property posted: Lancaster Gate, LONDON, W2
+[2025-06-21 18:05:57] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 18:06:02] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 18:06:24] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 18:06:36] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 18:06:41] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 18:06:51] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 18:07:11] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 18:07:30] INFO - [\u2705] Rightmove property posted: Wilton Crescent, Belgravia, London, SW1X, United Kingdom
+[2025-06-21 18:07:42] INFO - [\u2705] Rightmove property posted: Bayswater Road, London, W2
+[2025-06-21 18:08:02] INFO - [\u2705] Rightmove property posted: Eaton Place, London, SW1X
+[2025-06-21 18:08:12] INFO - [\u2705] Rightmove property posted: Glebe Place, London, SW3
+[2025-06-21 18:08:43] INFO - [\u2705] Rightmove property posted: Merton Lane, Highgate, London, N6
+[2025-06-21 18:24:03] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 18:25:09] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 18:25:26] INFO - [\u2705] Rightmove property posted: Westpole Avenue, Cockfosters, Barnet, EN4
+[2025-06-21 18:25:35] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 18:25:39] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 18:25:53] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 18:26:00] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 18:26:03] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 18:26:11] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 18:26:24] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 18:26:39] INFO - [\u2705] Rightmove property posted: Wilton Crescent, Belgravia, London, SW1X, United Kingdom
+[2025-06-21 18:26:44] INFO - [\u2705] Rightmove property posted: Bayswater Road, London, W2
+[2025-06-21 18:26:54] INFO - [\u2705] Rightmove property posted: Eaton Place, London, SW1X
+[2025-06-21 20:02:48] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 20:03:52] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 20:04:05] INFO - [\u2705] Rightmove property posted: Pettits Lane North, Romford, RM1
+[2025-06-21 20:04:14] INFO - [\u2705] Rightmove property posted: The Knightsbridge Apartments, 199 Knightsbridge, London, SW7
+[2025-06-21 20:04:18] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 20:04:30] INFO - [\u2705] Rightmove property posted: Avenue Road, St John's Wood, London, NW8, United Kingdom
+[2025-06-21 20:04:37] INFO - [\u2705] Rightmove property posted: Balfour Place, Mayfair, London, W1K
+[2025-06-21 20:04:50] INFO - [\u2705] Rightmove property posted: Whistler Square, London, SW1W
+[2025-06-21 20:04:56] INFO - [\u2705] Rightmove property posted: Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom
+[2025-06-21 20:04:59] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 20:05:12] INFO - [\u2705] Rightmove property posted: Wilton Crescent, Belgravia, London, SW1X, United Kingdom
+[2025-06-21 20:05:19] INFO - [\u2705] Rightmove property posted: Bayswater Road, London, W2
+[2025-06-21 20:05:37] INFO - [\u2705] Rightmove property posted: Eaton Place, London, SW1X
+[2025-06-21 20:05:47] INFO - [\u2705] Rightmove property posted: Glebe Place, London, SW3
+[2025-06-21 20:06:37] INFO - [\u2705] Rightmove property posted: Merton Lane, London, N6
+[2025-06-21 20:07:00] INFO - [\u2705] Rightmove property posted: Merton Lane, Highgate, London, N6
+[2025-06-21 20:07:02] INFO - [\u2705] Rightmove property posted: Avenue Road, NW8
+[2025-06-21 20:07:09] INFO - [\u2705] Rightmove property posted: Tregunter Road, Chelsea, London, SW10, United Kingdom
+[2025-06-21 20:07:13] INFO - [\u2705] Rightmove property posted: United Kingdom
+[2025-06-21 20:07:20] INFO - [\u2705] Rightmove property posted: Tregunter Road, London
+[2025-06-21 20:07:24] INFO - [\u2705] Rightmove property posted: Cadogan Place, Knightsbridge, London, SW1X
+[2025-06-21 20:07:38] INFO - [\u2705] Rightmove property posted: Piccadilly, Mayfair
+[2025-06-21 20:07:48] INFO - [\u2705] Rightmove property posted: Brick Street, Mayfair, London, England, W1J, United Kingdom
+[2025-06-21 20:07:51] INFO - [\u2705] Rightmove property posted: Brick Street, Mayfair, W1J
+[2025-06-21 20:08:07] INFO - [\u2705] Rightmove property posted: Brick Street, Mayfair, London, W1J
+[2025-06-21 20:08:17] INFO - [\u2705] Rightmove property posted: Brick Street, Mayfair, London, W1J
+[2025-06-21 20:08:35] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge, London, SW1X, United Kingdom
+[2025-06-21 20:08:43] INFO - [\u2705] Rightmove property posted: Devonshire Avenue, Sutton
+[2025-06-21 20:08:55] INFO - [\u2705] Rightmove property posted: Holland Park, London, W11
+[2025-06-21 20:09:21] INFO - [\u2705] Rightmove property posted: Knights House, Cheval Place, Knightsbridge, SW7, United Kingdom
+[2025-06-21 20:10:52] INFO - [\u2705] Rightmove property posted: Knightsbridge Gate, 1 William Street, Knightsbridge, London, SW1X 7BF
+[2025-06-21 20:11:49] ERROR - Upload failed for 'Knightsbridge, Knightsbridge Gate, London, SW1X, United Kingdom'
+[2025-06-21 20:12:05] INFO - [\u2705] Rightmove property posted: Knightsbridge Gate, Apartment 6, 55 Knightsbridge, SW1X
+[2025-06-21 20:12:49] INFO - [\u2705] Rightmove property posted: Park Crescent, London, W1B
+[2025-06-21 20:13:35] INFO - [\u2705] Rightmove property posted: Park Place Villas, Little Venice, London, W2, United Kingdom
+[2025-06-21 20:13:40] INFO - [\u2705] Rightmove property posted: Lowndes Square, London, SW1X
+[2025-06-21 20:13:53] INFO - [\u2705] Rightmove property posted: Park Place Villas, Little Venice, London, W9
+[2025-06-21 20:14:02] INFO - [\u2705] Rightmove property posted: Chester Square, Belgravia, London, SW1W, United Kingdom
+[2025-06-21 20:14:10] INFO - [\u2705] Rightmove property posted: Chester Square, Belgravia, SW1W
+[2025-06-21 20:14:47] INFO - [\u2705] Rightmove property posted: Chester Square, London, SW1W
+[2025-06-21 20:14:52] INFO - [\u2705] Rightmove property posted: One Hyde Park, Knightsbridge
+[2025-06-21 20:25:39] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 20:26:18] ERROR - Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+[2025-06-21 20:33:22] INFO - \U0001f680 Starting Daily Scraper Run
+[2025-06-21 20:34:18] INFO - \U0001f50e Rightmove: Found 50 listings
+[2025-06-21 20:34:21] INFO - [\u2705] Rightmove property posted: Rosendale Road, Dulwich, London, SE21
