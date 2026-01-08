@@ -16,3 +16,4 @@ venv/
 # Zips and archives
 *.zip
 _archive_*/
+.env
