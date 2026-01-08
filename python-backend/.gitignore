@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
+
+# FastAPI / tooling
+*.log
+
+# Local build/cache
+.next/
+.DS_Store
+
+# Zips and archives
+*.zip
+_archive_*/

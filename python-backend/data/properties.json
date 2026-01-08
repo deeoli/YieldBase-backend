@@ -1,0 +1,101 @@
+[
+	{
+		"id": "p-1001",
+		"title": "Modern 3-Bedroom House Near University",
+		"price": 75000,
+		"currency": "GBP",
+		"address": "24 Campus View, Bradford",
+		"city": "Bradford",
+		"postcode": "BD7 1DP",
+		"beds": 3,
+		"baths": 2,
+		"tenure": "Freehold",
+		"yield": 8.5,
+		"description": "A beautifully maintained 3-bedroom property perfect for student accommodation. Located within walking distance of the university campus.",
+		"image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+		"images": [
+			"https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+			"https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"
+		],
+		"sourceUrl": "https://example.com/listings/p-1001",
+		"isHighYield": true,
+		"floorArea": 1200,
+		"estimatedMonthlyRent": 530,
+		"estimatedAnnualRent": 6360,
+		"features": ["Garden", "Parking", "Modern Kitchen"]
+	},
+	{
+		"id": "p-1002",
+		"title": "Spacious 2-Bedroom Student Property",
+		"price": 95000,
+		"currency": "GBP",
+		"address": "12 Oxford Road, Manchester",
+		"city": "Manchester",
+		"postcode": "M13 9PL",
+		"beds": 2,
+		"baths": 1,
+		"tenure": "Leasehold",
+		"yield": 7.2,
+		"description": "Well-located 2-bedroom property ideal for student lets. Close to public transport and university facilities.",
+		"image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+		"images": [
+			"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+			"https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800"
+		],
+		"sourceUrl": "https://example.com/listings/p-1002",
+		"isHighYield": false,
+		"floorArea": 850,
+		"estimatedMonthlyRent": 570,
+		"estimatedAnnualRent": 6840
+	},
+	{
+		"id": "p-1003",
+		"title": "4-Bedroom House with High Yield",
+		"price": 120000,
+		"currency": "GBP",
+		"address": "8 Clarendon Terrace, Leeds",
+		"city": "Leeds",
+		"postcode": "LS2 8JT",
+		"beds": 4,
+		"baths": 2,
+		"tenure": "Freehold",
+		"yield": 9.8,
+		"description": "Excellent 4-bedroom property with strong rental yield potential. Perfect for multiple student tenants.",
+		"image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+		"images": [
+			"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+			"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+		],
+		"sourceUrl": "https://example.com/listings/p-1003",
+		"isHighYield": true,
+		"floorArea": 1500,
+		"estimatedMonthlyRent": 980,
+		"estimatedAnnualRent": 11760,
+		"features": ["Large Garden", "Double Parking", "Modern Bathroom"]
+	},
+	{
+		"id": "p-1004",
+		"title": "Affordable 3-Bedroom Investment",
+		"price": 65000,
+		"currency": "GBP",
+		"address": "3 City Gate, Bradford",
+		"city": "Bradford",
+		"postcode": "BD1 1AA",
+		"beds": 3,
+		"baths": 1,
+		"tenure": "Freehold",
+		"yield": 8.2,
+		"description": "Great value 3-bedroom property in a popular student area. Strong rental demand.",
+		"image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+		"images": [
+			"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+		],
+		"sourceUrl": "https://example.com/listings/p-1004",
+		"isHighYield": true,
+		"floorArea": 1100,
+		"estimatedMonthlyRent": 445,
+		"estimatedAnnualRent": 5340
+	}
+]
+
+
