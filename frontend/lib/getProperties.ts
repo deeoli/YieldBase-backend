@@ -89,6 +89,15 @@ export async function getProperties(filters?: PropertyFilters): Promise<Property
   try {
     let url = '';
 
+    // TEMP LOGS: Inspect environment and URL resolution
+    // eslint-disable-next-line no-console
+    console.log('[getProperties] config', {
+      DATA_SOURCE,
+      SCRAPER_API_BASE_URL,
+      EXTERNAL_API_BASE_URL,
+      filters,
+    });
+
     if (DATA_SOURCE === 'scraper' && SCRAPER_API_BASE_URL) {
       url = `${SCRAPER_API_BASE_URL}/properties${buildQueryString(filters)}`;
     } else if (DATA_SOURCE === 'api' && EXTERNAL_API_BASE_URL) {
@@ -98,10 +107,14 @@ export async function getProperties(filters?: PropertyFilters): Promise<Property
       return getMockProperties(filters);
     }
 
+    // eslint-disable-next-line no-console
+    console.log('[getProperties] fetching', { url });
     const response = await fetch(url, {
       cache: 'no-store',
     });
 
+    // eslint-disable-next-line no-console
+    console.log('[getProperties] response', { status: response.status, ok: response.ok });
     if (!response.ok) {
       console.error(`Failed to fetch properties: ${response.statusText}`);
       return getMockProperties(filters);

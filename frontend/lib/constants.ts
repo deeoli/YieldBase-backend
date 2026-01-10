@@ -17,7 +17,7 @@ export const FALLBACK_IMAGES = [
 // API Configuration
 export const SCRAPER_API_BASE_URL = process.env.NEXT_PUBLIC_SCRAPER_API_BASE_URL || 'http://localhost:8001/api';
 export const DATA_SOURCE = process.env.NEXT_PUBLIC_DATA_SOURCE || 'scraper';
-export const EXTERNAL_API_BASE_URL = process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL || '';
+export const EXTERNAL_API_BASE_URL = process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL || SCRAPER_API_BASE_URL;
 
 // Yield Calculator
 export const DAILY_CALCULATION_LIMIT = 3;

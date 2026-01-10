@@ -3,7 +3,8 @@ from datetime import datetime
 from pathlib import Path
 
 def write_to_json(data, filename_prefix="rightmove"):
-    output_dir = Path("data/exports")
+    base_dir = Path(__file__).resolve().parents[1]
+    output_dir = base_dir / "data" / "exports"
     output_dir.mkdir(parents=True, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")

@@ -1,5 +1,25 @@
-# local env files
-.env*.local
+# Local artifacts
+props.json
+python-backend/props.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / Next
+node_modules/
+.next/
+out/
+dist/
+
+# Env files
 .env
+.env.*
+frontend/.env.local
+python-backend/.env
+python-backend/.env.*
 
-
+# Scraper runtime outputs
+python-backend/data/exports/*.json
+python-backend/media_cache/
