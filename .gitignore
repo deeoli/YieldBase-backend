@@ -1,0 +1,17 @@
+# =========================
+# Scraper runtime outputs
+# =========================
+python-backend/data/exports/*.json
+python-backend/media_cache/
+
+# =========================
+# Python junk
+# =========================
+__pycache__/
+*.pyc
+
+# =========================
+# Node junk
+# =========================
+node_modules/
+.next/

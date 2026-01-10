@@ -1,14 +1,16 @@
 import json
-import os
 from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
+from pathlib import Path
 
 router = APIRouter(tags=["properties"])
 
-# Compute path to data/properties.json relative to this file
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-DATA_FILE = os.path.join(BASE_DIR, "data", "properties.json")
+# Paths (Path-based)
+BASE_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = BASE_DIR / "data"
+EXPORTS_DIR = DATA_DIR / "exports"
+FALLBACK_FILE = DATA_DIR / "properties.json"
 
 
 class Property(BaseModel):
@@ -41,11 +43,46 @@ class Property(BaseModel):
 		return data
 
 
+def _get_latest_export_file() -> Optional[Path]:
+	if not EXPORTS_DIR.exists():
+		return None
+	exports = sorted(EXPORTS_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+	return exports[0] if exports else None
+
+
 def _load_properties() -> List[dict]:
-	if not os.path.exists(DATA_FILE):
+	# Try newest export first
+	try_file: Optional[Path] = _get_latest_export_file()
+
+	# If no exports, try fallback file
+	if try_file is None:
+		try_file = FALLBACK_FILE if FALLBACK_FILE.exists() else None
+
+	# If nothing available
+	if try_file is None:
 		return []
-	with open(DATA_FILE, "r", encoding="utf-8") as f:
-		return json.load(f)
+
+	# Attempt to read chosen file; on error, fall back to fallback file
+	def _read_json(path: Path) -> Optional[List[dict]]:
+		try:
+			with path.open("r", encoding="utf-8") as f:
+				data = json.load(f)
+			# Ensure list return
+			return data if isinstance(data, list) else []
+		except (FileNotFoundError, json.JSONDecodeError):
+			return None
+
+	primary = _read_json(try_file)
+	if primary is not None:
+		return primary
+
+	# Fallback attempt (if primary was an export)
+	if try_file != FALLBACK_FILE and FALLBACK_FILE.exists():
+		fallback = _read_json(FALLBACK_FILE)
+		if fallback is not None:
+			return fallback
+
+	return []
 
 
 @router.get("/properties")
@@ -99,4 +136,16 @@ def get_property(property_id: str):
 	raise HTTPException(status_code=404, detail="Property not found")
 
 
+@router.get("/debug/source")
+def debug_source():
+    latest = _get_latest_export_file()
+    chosen = latest if latest is not None else (FALLBACK_FILE if FALLBACK_FILE.exists() else None)
+    return {
+        "base_dir": str(BASE_DIR),
+        "exports_dir": str(EXPORTS_DIR),
+        "fallback_file": str(FALLBACK_FILE),
+        "latest_export": str(latest) if latest else None,
+        "chosen_file": str(chosen) if chosen else None,
+        "exports_found": [p.name for p in sorted(EXPORTS_DIR.glob("*.json"))] if EXPORTS_DIR.exists() else [],
+    }
 
