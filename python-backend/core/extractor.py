@@ -12,20 +12,69 @@ def extract_data(html, config):
         for field, selector in config['selectors']['fields'].items():
             try:
                 if field == 'image':
-                    img = next((img for img in item.select('img[data-testid^="property-img-"]')
-                                if 'svg' not in img.get('src', '')), None)
-                    if img:
-                        src = img['src'].replace('max_476x317', 'max_1024x768')
-                        data['image'] = src
-                    else:
-                        data['image'] = None
+                    def pick_img_url(tag):
+                        # Prefer lazy-loaded attrs, then src, then srcset
+                        url = (
+                            tag.get('data-src')
+                            or tag.get('data-lazy')
+                            or tag.get('data-original')
+                            or tag.get('src')
+                        )
+                        if not url:
+                            srcset = tag.get('srcset') or tag.get('data-srcset')
+                            if srcset:
+                                url = srcset.split(',')[0].strip().split(' ')[0]
+                        return url
+
+                    imgs = item.select('img[data-testid^="property-img-"]')
+                    urls = []
+                    for img in imgs:
+                        u = pick_img_url(img)
+                        if not u:
+                            continue
+                        if 'svg' in u:
+                            continue
+                        if u.startswith('data:'):
+                            continue
+                        urls.append(u.replace('max_476x317', 'max_1024x768'))
+
+                    # Dedupe while preserving order
+                    seen = set()
+                    urls = [u for u in urls if not (u in seen or seen.add(u))]
+
+                    data['image'] = urls[0] if urls else None
 
                 elif field == 'images':
+                    def pick_img_url(tag):
+                        url = (
+                            tag.get('data-src')
+                            or tag.get('data-lazy')
+                            or tag.get('data-original')
+                            or tag.get('src')
+                        )
+                        if not url:
+                            srcset = tag.get('srcset') or tag.get('data-srcset')
+                            if srcset:
+                                url = srcset.split(',')[0].strip().split(' ')[0]
+                        return url
+
                     imgs = item.select('img[data-testid^="property-img-"]')
-                    data['images'] = list({
-                        img['src'].replace('max_476x317', 'max_1024x768')
-                        for img in imgs if 'svg' not in img.get('src', '')
-                    })
+                    urls = []
+                    for img in imgs:
+                        u = pick_img_url(img)
+                        if not u:
+                            continue
+                        if 'svg' in u:
+                            continue
+                        if u.startswith('data:'):
+                            continue
+                        urls.append(u.replace('max_476x317', 'max_1024x768'))
+
+                    seen = set()
+                    urls = [u for u in urls if not (u in seen or seen.add(u))]
+
+                    # Keep it small to avoid junk
+                    data['images'] = urls[:8]
 
                 elif field == 'link':
                     link = (item.select_one('a.propertyCard-anchor') or 
