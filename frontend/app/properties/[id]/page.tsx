@@ -403,16 +403,6 @@ export default function PropertyDetailPage() {
                 >
                   Enquire About This Property
                 </button>
-                {property.sourceUrl && (
-                  <a
-                    href={property.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-accent-gold text-primary-navy px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors text-center"
-                  >
-                    View Original Listing
-                  </a>
-                )}
               </div>
             </div>
           </div>

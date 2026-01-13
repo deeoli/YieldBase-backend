@@ -8,8 +8,19 @@ import { SCRAPER_API_BASE_URL } from './constants';
  * Get a unique fallback image based on property ID
  */
 export function getFallbackImage(propertyId: string): string {
-  const index = parseInt(propertyId.replace(/\D/g, ''), 10) || 0;
-  return FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
+  const digits = propertyId.replace(/\D/g, '');
+  let index: number;
+  if (digits.length > 0) {
+    index = Number(digits) % FALLBACK_IMAGES.length;
+  } else {
+    // Deterministic string hash when no digits exist in the id
+    let hash = 0;
+    for (let i = 0; i < propertyId.length; i++) {
+      hash = (hash * 31 + propertyId.charCodeAt(i)) >>> 0;
+    }
+    index = hash % FALLBACK_IMAGES.length;
+  }
+  return FALLBACK_IMAGES[index];
 }
 
 /**

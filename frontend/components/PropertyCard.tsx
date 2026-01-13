@@ -51,6 +51,9 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
   const isBackendImage = imgSrc.includes('/api/images/');
   const useRegularImg = isRightmoveImage || isBackendImage;
 
+  const hasCity = !!property.city && property.city !== 'Unknown';
+  const hasPostcode = !!property.postcode;
+
   return (
     <div className="bg-card-bg rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
       <div className="relative h-[220px] w-full bg-gray-200">
@@ -80,13 +83,20 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
           </div>
         )}
       </div>
+
       <div className="p-6">
-        <div className="text-sm text-text-muted mb-1">
-          {property.city}, {property.postcode}
-        </div>
+        {(hasCity || hasPostcode) && (
+          <div className="text-sm text-text-muted mb-1">
+            {[hasCity ? property.city : null, hasPostcode ? property.postcode : null]
+              .filter(Boolean)
+              .join(', ')}
+          </div>
+        )}
+
         <h3 className="text-lg font-heading font-semibold text-text-dark mb-2 line-clamp-2">
           {property.title}
         </h3>
+
         <div className="flex items-center justify-between mb-4">
           <div className="text-2xl font-heading font-bold text-primary-navy">
             {formatPrice(property.price, property.currency)}
@@ -98,10 +108,12 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
             </div>
           )}
         </div>
+
         <div className="flex items-center gap-4 text-sm text-text-muted mb-4">
           <span>{property.beds} bed</span>
           {property.baths !== undefined && <span>{property.baths} bath</span>}
         </div>
+
         <div className="flex gap-2">
           <Link
             href={`/properties/${property.id}`}
@@ -122,4 +134,3 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
     </div>
   );
 }
-

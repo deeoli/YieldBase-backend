@@ -15,6 +15,7 @@ export default function YieldCalculatorPage() {
   const [purchasePrice, setPurchasePrice] = useState('');
   const [monthlyRent, setMonthlyRent] = useState('');
   const [renovationCost, setRenovationCost] = useState('');
+  const [annualCosts, setAnnualCosts] = useState('');
   const [numRooms, setNumRooms] = useState('');
   const [calculationsLeft, setCalculationsLeft] = useState(DAILY_CALCULATION_LIMIT);
   const [showLimitModal, setShowLimitModal] = useState(false);
@@ -69,15 +70,16 @@ export default function YieldCalculatorPage() {
   };
 
   // Calculations (only show if hasCalculated is true)
-  const annualRent = hasCalculated && monthlyRent ? Number(monthlyRent) * 12 : 0;
-  const netInvestment = hasCalculated && purchasePrice
-    ? renovationCost
-      ? Number(purchasePrice) + Number(renovationCost)
-      : Number(purchasePrice)
-    : 0;
-  const yieldPercentage = hasCalculated && netInvestment > 0 && annualRent > 0
-    ? (annualRent / netInvestment) * 100
-    : 0;
+  const purchase = hasCalculated ? Number(purchasePrice || 0) : 0;
+  const monthly = hasCalculated ? Number(monthlyRent || 0) : 0;
+  const reno = hasCalculated ? Number(renovationCost || 0) : 0;
+  const costs = hasCalculated ? Number(annualCosts || 0) : 0;
+  const annualRent = monthly * 12;
+  const netInvestment = purchase + reno;
+  const safeDiv = (num: number, den: number) => (den > 0 ? (num / den) * 100 : 0);
+  const grossYieldPercentage = safeDiv(annualRent, netInvestment);
+  const netAnnualIncome = annualRent - costs; // allow negative (more honest)
+  const netYieldPercentage = safeDiv(netAnnualIncome, netInvestment);
 
   return (
     <>
@@ -142,6 +144,20 @@ export default function YieldCalculatorPage() {
                 />
               </div>
               <div>
+                <label htmlFor="annualCosts" className="block text-sm font-medium text-text-dark mb-2">
+                  Annual Costs (£) <span className="text-text-muted">(optional)</span>
+                </label>
+                <input
+                  type="number"
+                  id="annualCosts"
+                  value={annualCosts}
+                  onChange={(e) => setAnnualCosts(e.target.value)}
+                  placeholder="1200"
+                  disabled={calculationsLeft <= 0}
+                  className="w-full px-4 py-3 border border-border-grey rounded-xl focus:ring-2 focus:ring-accent-gold focus:border-transparent text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-100"
+                />
+              </div>
+              <div>
                 <label htmlFor="numRooms" className="block text-sm font-medium text-text-dark mb-2">
                   Number of Rooms <span className="text-text-muted">(optional)</span>
                 </label>
@@ -171,19 +187,27 @@ export default function YieldCalculatorPage() {
               </h2>
               {hasCalculated && purchasePrice && monthlyRent ? (
                 <div className="space-y-6">
-                  {/* Yield % - Large text, shown first */}
+                  {/* Gross Yield % - Large text, shown first */}
                   <div className="border-b border-border-grey pb-6">
-                    <div className="text-sm text-text-muted mb-2">Yield</div>
+                    <div className="text-sm text-text-muted mb-2">Gross Yield</div>
                     <div className={`text-5xl font-heading font-bold ${
-                      yieldPercentage >= 8 ? 'text-yield-high-text' : 'text-accent-gold'
+                      grossYieldPercentage >= 8 ? 'text-yield-high-text' : 'text-accent-gold'
                     }`}>
-                      {yieldPercentage.toFixed(2)}%
+                      {grossYieldPercentage.toFixed(2)}%
                     </div>
-                    {yieldPercentage >= 8 && (
+                    {grossYieldPercentage >= 8 && (
                       <div className="mt-2 inline-block bg-yield-high-bg text-yield-high-text px-3 py-1 rounded-full text-xs font-semibold">
                         High Yield
                       </div>
                     )}
+                  </div>
+                  
+                  {/* Net Yield % */}
+                  <div className="border-b border-border-grey pb-6">
+                    <div className="text-sm text-text-muted mb-2">Net Yield</div>
+                    <div className="text-4xl font-heading font-bold text-accent-gold">
+                      {netYieldPercentage.toFixed(2)}%
+                    </div>
                   </div>
                   
                   {/* Annual Rent */}
