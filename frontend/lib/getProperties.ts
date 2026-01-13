@@ -1,6 +1,5 @@
 import { Property, PropertyFilters } from '@/types/property';
 import { DATA_SOURCE, SCRAPER_API_BASE_URL, EXTERNAL_API_BASE_URL } from './constants';
-import { normalizeImageUrl, getFallbackImage } from './imageUtils';
 
 const generateId = () => {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -20,16 +19,20 @@ function normalizeProperty(data: any): Property {
   const currency = (data.currency || data.priceCurrency || 'GBP').toUpperCase();
   
   const propertyId = String(data.id || data._id || generateId());
-  const fallbackImage = getFallbackImage(propertyId);
-  
-  const mainImage = Array.isArray(data.images) && data.images.length > 0
-    ? normalizeImageUrl(data.images[0], fallbackImage)
-    : normalizeImageUrl(data.image || fallbackImage, fallbackImage);
-  const imageGallery = Array.isArray(data.images) && data.images.length > 0
-    ? data.images.map((img: string) => normalizeImageUrl(img, fallbackImage))
-    : mainImage
-    ? [mainImage]
-    : [fallbackImage];
+
+  // Images: use backend-provided URLs only, never local filesystem paths
+  const isAllowedUrl = (u: any): u is string =>
+    typeof u === 'string' &&
+    (u.startsWith('http') || u.startsWith('/api/images/')) &&
+    !u.includes('media_cache') &&
+    !u.includes('\\');
+
+  const rawImages: any[] = Array.isArray(data.images) ? data.images : [];
+  const filteredImages: string[] = rawImages.filter(isAllowedUrl);
+
+  const mainImageCandidate = isAllowedUrl(data.image) ? data.image : (filteredImages[0] || '');
+  const mainImage = typeof mainImageCandidate === 'string' ? mainImageCandidate : '';
+  const imageGallery = filteredImages;
 
   const buildAddress = (): string => {
     if (typeof data.address === 'string') return data.address;
