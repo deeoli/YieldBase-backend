@@ -6,9 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from '@/types/property';
 import { getPropertyById } from '@/lib/getProperties';
-
-// Get backend base URL for image normalization
-const SCRAPER_API_BASE_URL = process.env.NEXT_PUBLIC_SCRAPER_API_BASE_URL || 'http://localhost:8001/api';
+import { normalizeImageUrl } from '@/lib/imageUtils';
 
 export default function PropertyDetailPage() {
   const params = useParams();
@@ -86,26 +84,11 @@ export default function PropertyDetailPage() {
       return;
     }
 
-    // Helper to normalize image URLs
-    const normalizeImageUrl = (url: string): string => {
-      if (!url) return fallbackImage;
-      if (url.startsWith('http://') || url.startsWith('https://')) {
-        return url;
-      }
-      if (url.startsWith('/images/')) {
-        return `${SCRAPER_API_BASE_URL}${url}`;
-      }
-      if (url.startsWith('/api/images/')) {
-        return `${SCRAPER_API_BASE_URL}${url}`;
-      }
-      return url;
-    };
-
     // Calculate images based on property
     const allImages = property.images && property.images.length > 0
-      ? property.images.map(normalizeImageUrl)
+      ? property.images.map((u) => normalizeImageUrl(u, fallbackImage))
       : property.image
-      ? [normalizeImageUrl(property.image)]
+      ? [normalizeImageUrl(property.image, fallbackImage)]
       : [];
 
     const validImages = allImages.filter(img => img && img.trim() !== '');
@@ -190,26 +173,11 @@ export default function PropertyDetailPage() {
     );
   }
 
-  // Helper to normalize image URLs for rendering (used after property is loaded)
-  const normalizeImageUrl = (url: string): string => {
-    if (!url) return fallbackImage;
-    if (url.startsWith('http://') || url.startsWith('https://')) {
-      return url;
-    }
-    if (url.startsWith('/images/')) {
-      return `${SCRAPER_API_BASE_URL}${url}`;
-    }
-    if (url.startsWith('/api/images/')) {
-      return `${SCRAPER_API_BASE_URL}${url}`;
-    }
-    return url;
-  };
-
   // Calculate images for rendering (only used after property is confirmed to exist)
   const allImages = property.images && property.images.length > 0
-    ? property.images.map(normalizeImageUrl)
+    ? property.images.map((u) => normalizeImageUrl(u, fallbackImage))
     : property.image
-    ? [normalizeImageUrl(property.image)]
+    ? [normalizeImageUrl(property.image, fallbackImage)]
     : [];
 
     const validImages = allImages.filter(img => img && img.trim() !== '');

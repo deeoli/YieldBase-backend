@@ -44,11 +44,15 @@ export function normalizeImageUrl(url: string | null | undefined, fallback?: str
     return `${baseUrl}${url}`;
   }
   
-  // Handle /api/images/ paths
+  // Handle /api/images/ paths (avoid double /api)
   if (url.startsWith('/api/images/')) {
-    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
-      ? SCRAPER_API_BASE_URL.slice(0, -1) 
+    // If SCRAPER_API_BASE_URL already ends with /api, strip it for image URLs
+    const base = SCRAPER_API_BASE_URL.endsWith('/api')
+      ? SCRAPER_API_BASE_URL.slice(0, -4)
       : SCRAPER_API_BASE_URL;
+    const baseUrl = base.endsWith('/')
+      ? base.slice(0, -1)
+      : base;
     return `${baseUrl}${url}`;
   }
   
