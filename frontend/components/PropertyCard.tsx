@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Property } from '@/types/property';
 import { formatPrice } from '@/lib/formatUtils';
-import { normalizeImageUrl, getFallbackImage } from '@/lib/imageUtils';
+import { getFallbackImage } from '@/lib/imageUtils';
+import { SCRAPER_API_BASE_URL } from '@/lib/constants';
 
 interface PropertyCardProps {
   property: Property;
@@ -15,25 +16,55 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
   const isHighYield = property.isHighYield ?? ((property.yield || 0) >= 8);
   const fallbackImage = getFallbackImage(property.id);
   
-  // Get all available image URLs (prioritize property.image, then images array)
-  // Remove duplicates while preserving order
-  const imageSet = new Set<string>();
-  if (property.image) imageSet.add(property.image);
-  if (property.images) {
-    property.images.forEach(img => {
-      if (img) imageSet.add(img);
-    });
+  // Build image candidates in priority (no fallback in this list):
+  // A) cached single image_path -> `${SCRAPER_API_BASE_URL}/images/<filename>`
+  // B) cached image_paths[] -> same conversion
+  // C) remote main image (property.image) with cache-buster if Rightmove
+  // D) remote gallery images (property.images) with cache-buster if Rightmove
+  const raw: any = property as any;
+  const candidates: string[] = [];
+  const toRightmoveCb = (url: string) =>
+    url.includes('media.rightmove.co.uk') ? (url.includes('?') ? `${url}&cb=${property.id}` : `${url}?cb=${property.id}`) : url;
+  const toCachedUrl = (p: string) => {
+    const file = (p || '').split(/[\\\\/]/).pop() as string || '';
+    return file ? `${SCRAPER_API_BASE_URL}/images/${encodeURIComponent(file)}` : '';
+  };
+  if (typeof raw?.image_path === 'string' && raw.image_path) {
+    const u = toCachedUrl(raw.image_path);
+    if (u) {
+      candidates.push(u);
+    }
   }
-  const allImages = Array.from(imageSet);
+  if (Array.isArray(raw?.image_paths)) {
+    for (const p of raw.image_paths as any[]) {
+      if (typeof p === 'string') {
+        const u = toCachedUrl(p);
+        if (u) {
+          candidates.push(u);
+        }
+      }
+    }
+  }
+  if (typeof property.image === 'string' && property.image) {
+    candidates.push(toRightmoveCb(property.image));
+  }
+  if (Array.isArray(property.images)) {
+    for (const u of property.images as any[]) {
+      if (typeof u === 'string') {
+        candidates.push(toRightmoveCb(u));
+      }
+    }
+  }
+  const isAllowedUrl = (u: string) =>
+    (u.startsWith('http') || u.startsWith('/api/images/')) && !u.includes('media_cache') && !u.includes('\\');
+  const allImages = Array.from(new Set(candidates.filter(isAllowedUrl)));
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [useFallback, setUseFallback] = useState(false);
   
-  // Determine which image to show - normalize URLs
+  // Determine which image to show; only use fallback after exhausting real URLs
   const currentImage = allImages.length > 0 ? allImages[currentImageIndex] : null;
-  const imgSrc = useFallback || !currentImage
-    ? fallbackImage 
-    : normalizeImageUrl(currentImage, fallbackImage);
+  const imgSrc = useFallback || !currentImage ? fallbackImage : (currentImage as string);
 
   const handleImageError = () => {
     // Try next image in the array if available
