@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from '@/types/property';
 import { getPropertyById } from '@/lib/getProperties';
-import { normalizeImageUrl } from '@/lib/imageUtils';
+import { getFallbackImage } from '@/lib/imageUtils';
 
 export default function PropertyDetailPage() {
   const params = useParams();
@@ -29,24 +29,36 @@ export default function PropertyDetailPage() {
   const [allImagesFailed, setAllImagesFailed] = useState(false);
   const [currentMainImage, setCurrentMainImage] = useState<string>('');
   
-  // Unique fallback images per property
-  const FALLBACK_IMAGES = [
-    'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800',
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800',
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800',
-    'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=800',
-    'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800',
-    'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800',
-  ];
-  
-  const getFallbackImage = (propId: string): string => {
-    const index = parseInt(propId.replace(/\D/g, ''), 10) || 0;
-    return FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
-  };
-  
   const fallbackImage = getFallbackImage(id || '0');
+
+  // Build image candidates in priority:
+  // A) cached thumbnails from image_paths -> /api/images/<filename>
+  // B) remote images array (Rightmove)
+  // C) a single fallback (last)
+  const buildImageCandidates = (p: Property | null, fb: string): string[] => {
+    if (!p) return [fb];
+    const raw: any = p as any;
+    const extractFile = (s: string) => (s || '').split(/[\\\/]/).pop() || '';
+    const cachedList: string[] = Array.isArray(raw?.image_paths)
+      ? (raw.image_paths as any[])
+          .map((x) => (typeof x === 'string' ? extractFile(x) : ''))
+          .filter(Boolean)
+          .map((fname) => `/api/images/${encodeURIComponent(fname)}`)
+      : [];
+    const remoteList: string[] = [
+      ...(Array.isArray(p.images) ? (p.images as string[]) : []),
+      ...(p.image ? [p.image] : []),
+    ].filter((u) => typeof u === 'string' && u.trim().length > 0);
+    const dedup = (arr: string[]) => Array.from(new Set(arr));
+    const isAllowed = (u: string) =>
+      typeof u === 'string' &&
+      u.trim().length > 0 &&
+      (u.startsWith('http') || u.startsWith('/api/images/')) &&
+      !u.includes('media_cache') &&
+      !u.includes('\\');
+    const candidates = dedup([...cachedList, ...remoteList, fb]).filter(isAllowed);
+    return candidates.length > 0 ? candidates : [fb];
+  };
 
   // Load property data
   useEffect(() => {
@@ -84,28 +96,7 @@ export default function PropertyDetailPage() {
       return;
     }
 
-    // Calculate images based on property
-    const allImages = property.images && property.images.length > 0
-      ? property.images.map((u) => normalizeImageUrl(u, fallbackImage))
-      : property.image
-      ? [normalizeImageUrl(property.image, fallbackImage)]
-      : [];
-
-    const validImages = allImages.filter(img => img && img.trim() !== '');
-    
-    // If no valid images, create multiple fallback images for thumbnails
-    let displayImages: string[];
-    if (validImages.length > 0) {
-      displayImages = validImages;
-    } else {
-      // Use multiple fallback images so thumbnails can display
-      displayImages = [
-        fallbackImage,
-        FALLBACK_IMAGES[(FALLBACK_IMAGES.indexOf(fallbackImage) + 1) % FALLBACK_IMAGES.length],
-        FALLBACK_IMAGES[(FALLBACK_IMAGES.indexOf(fallbackImage) + 2) % FALLBACK_IMAGES.length],
-        FALLBACK_IMAGES[(FALLBACK_IMAGES.indexOf(fallbackImage) + 3) % FALLBACK_IMAGES.length],
-      ];
-    }
+    const displayImages = buildImageCandidates(property, fallbackImage);
 
     if (displayImages.length > 0) {
       const newImage = displayImages[selectedImageIndex] || displayImages[0];
@@ -174,28 +165,13 @@ export default function PropertyDetailPage() {
   }
 
   // Calculate images for rendering (only used after property is confirmed to exist)
-  const allImages = property.images && property.images.length > 0
-    ? property.images.map((u) => normalizeImageUrl(u, fallbackImage))
-    : property.image
-    ? [normalizeImageUrl(property.image, fallbackImage)]
-    : [];
+  const allImages = buildImageCandidates(property, fallbackImage);
 
     const validImages = allImages.filter(img => img && img.trim() !== '');
     
     // If no valid images, create multiple fallback images for thumbnails
     let displayImages: string[];
-    if (validImages.length > 0) {
-      displayImages = validImages;
-    } else {
-      // Use multiple fallback images so thumbnails can display
-      const fallbackIndex = FALLBACK_IMAGES.indexOf(fallbackImage);
-      displayImages = [
-        fallbackImage,
-        FALLBACK_IMAGES[(fallbackIndex + 1) % FALLBACK_IMAGES.length],
-        FALLBACK_IMAGES[(fallbackIndex + 2) % FALLBACK_IMAGES.length],
-        FALLBACK_IMAGES[(fallbackIndex + 3) % FALLBACK_IMAGES.length],
-      ];
-    }
+    displayImages = validImages.length > 0 ? validImages : [fallbackImage];
 
   const currencyFormatter = new Intl.NumberFormat('en-GB', {
     style: 'currency',
@@ -224,7 +200,7 @@ export default function PropertyDetailPage() {
                    onClick={() => setIsLightboxOpen(true)}>
                 {mainImage && (
                   <img
-                    key={`main-${selectedImageIndex}-${Date.now()}`}
+                    key={`main-${selectedImageIndex}`}
                     src={mainImage}
                     alt={property.title}
                     className="w-full h-full object-cover"
