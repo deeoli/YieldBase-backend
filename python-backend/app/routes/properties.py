@@ -1,4 +1,5 @@
 import json
+import re
 from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import FileResponse
@@ -87,6 +88,169 @@ def _load_properties() -> List[dict]:
 	return []
 	
 
+_UK_POSTCODE_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2})\b", re.IGNORECASE)
+_UK_OUTWARD_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\b", re.IGNORECASE)
+
+
+def _extract_postcode(text: str) -> Optional[str]:
+	if not text:
+		return None
+	m = _UK_POSTCODE_RE.search(text.upper())
+	if not m:
+		# Try outward-only (district) near the end of the string
+		upper = text.upper()
+		last_match = None
+		for mo in _UK_OUTWARD_RE.finditer(upper):
+			last_match = mo
+		if last_match:
+			candidate = last_match.group(1).upper()
+			# Heuristic: accept if it's near the end or is the last token
+			pos = last_match.start()
+			last_tokens = [t.strip() for t in re.split(r"[,\s]+", upper) if t.strip()]
+			if pos >= len(upper) - 10 or (last_tokens and candidate == last_tokens[-1]):
+				return candidate
+		return None
+	code = m.group(1).upper().replace(" ", "")
+	# Insert a single space before the last 3 characters when possible
+	if len(code) > 3:
+		return f"{code[:-3]} {code[-3:]}"
+	return code
+
+
+def _infer_city_and_postcode(p: dict) -> tuple[Optional[str], Optional[str]]:
+	city: Optional[str] = None
+	postcode: Optional[str] = None
+
+	address = p.get("address") or ""
+	title = p.get("title") or ""
+
+	# Try regex postcode first from address, then title
+	postcode = _extract_postcode(str(address)) or _extract_postcode(str(title))
+
+	# Heuristic: split by comma and try to infer city from tokens
+	def _token_city(s: str) -> Optional[str]:
+		if not s:
+			return None
+		parts = [t.strip() for t in str(s).split(",") if t and t.strip()]
+		if not parts:
+			return None
+		# Often ... , CITY , POSTCODE
+		if len(parts) >= 2:
+			# Prefer second last token as potential city
+			return parts[-2]
+		# Fallback to last token if only one
+		return parts[-1]
+
+	city = _token_city(address) or _token_city(title)
+
+	return city if city else None, postcode if postcode else None
+
+
+def _looks_like_postcode(s: str) -> bool:
+	if not s:
+		return False
+	up = str(s).strip().upper()
+	if up in {"UK", "GB"}:
+		return False
+	# Accept full or outward-only when the whole token matches
+	return bool(_UK_POSTCODE_RE.fullmatch(up) or _UK_OUTWARD_RE.fullmatch(up))
+
+
+def _normalize_property(p: dict) -> dict:
+	"""
+	Ensure required keys exist and fill sensible defaults/inferences without
+	overwriting non-empty existing values.
+	"""
+	out = dict(p) if isinstance(p, dict) else {}
+
+	# Helper: bad placeholders
+	def _is_bad(val: Optional[str]) -> bool:
+		if val is None:
+			return True
+		s = str(val).strip().lower()
+		return s == "" or s in {"ask agent", "tbc", "n/a", "na", "-", "unknown"}
+
+	# Required keys scaffold
+	required_defaults = {
+		"id": "",
+		"title": "",
+		"price": 0,
+		"currency": "GBP",
+		"address": "",
+		"city": "",
+		"postcode": "",
+		"beds": 0,
+		"image": "",
+		"sourceUrl": "",
+	}
+	for k, v in required_defaults.items():
+		if k not in out:
+			out[k] = v
+
+	# currency
+	curr = str(out.get("currency") or "").strip().upper()
+	out["currency"] = curr if curr else "GBP"
+
+	# sourceUrl
+	if not out.get("sourceUrl"):
+		src = out.get("sourceUrl") or out.get("link") or ""
+		out["sourceUrl"] = src
+
+	# beds
+	if not out.get("beds"):
+		beds = out.get("bedrooms")
+		try:
+			out["beds"] = int(beds) if beds is not None and str(beds).strip() != "" else out.get("beds", 0)
+		except Exception:
+			out["beds"] = out.get("beds", 0)
+
+	# price numeric coercion (keep minimal and safe)
+	try:
+		out["price"] = float(out.get("price") or 0)
+	except Exception:
+		out["price"] = 0
+
+	# city/postcode inference without overwriting non-empty
+	city_cur = (out.get("city") or "").strip()
+	postcode_cur = (out.get("postcode") or "").strip()
+	if _is_bad(city_cur) or _is_bad(postcode_cur):
+		inf_city, inf_postcode = _infer_city_and_postcode(out)
+		if _is_bad(city_cur) and inf_city:
+			out["city"] = inf_city
+		if _is_bad(postcode_cur) and inf_postcode:
+			out["postcode"] = inf_postcode
+
+	# If city is a postcode (e.g., "SW7") and postcode is bad/Unknown, promote city to postcode
+	pc_cur = (out.get("postcode") or "").strip()
+	city_val = (out.get("city") or "").strip()
+	if _looks_like_postcode(city_val) and (_is_bad(pc_cur) or pc_cur.lower() == "unknown"):
+		out["postcode"] = city_val.upper()
+		# Try to infer a real city again; do not accept postcode-shaped values
+		inf_city, inf_postcode = _infer_city_and_postcode(out)
+		if inf_city and not _looks_like_postcode(inf_city):
+			out["city"] = inf_city
+		else:
+			txt = f"{out.get('address','')} {out.get('title','')}".lower()
+			out["city"] = "London" if "london" in txt else "Unknown"
+
+	# If still missing/unusable, default to "Unknown" for required string fields
+	for key in ("title", "address", "city", "postcode", "currency", "sourceUrl"):
+		if _is_bad(out.get(key)):
+			# currency already defaulted above, but keep consistent
+			out[key] = "GBP" if key == "currency" else "Unknown"
+
+	# Prefer cached image if available
+	image_val = out.get("image") or ""
+	image_path = out.get("image_path")
+	if not image_val and isinstance(image_path, str) and image_path.strip():
+		fname = Path(image_path).name
+		if fname and "\\" not in fname and "media_cache" not in fname:
+			image_val = f"/api/images/{fname}"
+	out["image"] = image_val or ""
+
+	return out
+
+
 @router.get("/images/{filename}")
 def get_cached_image(filename: str):
         # block path traversal
@@ -110,6 +274,8 @@ def list_properties(
 	page: Optional[int] = None,
 ):
 	items = _load_properties()
+	# Normalize payloads first
+	items = [_normalize_property(p) for p in items]
 
 	def matches(p: dict) -> bool:
 		# price filters
@@ -147,7 +313,7 @@ def get_property(property_id: str):
 	items = _load_properties()
 	for p in items:
 		if str(p.get("id")) == str(property_id):
-			return p
+			return _normalize_property(p)
 	raise HTTPException(status_code=404, detail="Property not found")
 
 
