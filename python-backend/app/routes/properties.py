@@ -248,6 +248,44 @@ def _normalize_property(p: dict) -> dict:
 			image_val = f"/api/images/{fname}"
 	out["image"] = image_val or ""
 
+	# Derived metrics
+	# 1) estimatedAnnualRent
+	def _to_float(x) -> float:
+		try:
+			return float(x)
+		except Exception:
+			return 0.0
+
+	ann = _to_float(out.get("estimatedAnnualRent"))
+	if ann <= 0:
+		monthly = _to_float(out.get("estimatedMonthlyRent"))
+		if monthly > 0:
+			out["estimatedAnnualRent"] = round(monthly * 12.0, 2)
+	else:
+		# keep existing positive value
+		out["estimatedAnnualRent"] = round(ann, 2)
+
+	# 2) yield (gross %)
+	# Do not overwrite an existing valid yield
+	existing_yield = out.get("yield")
+	def _valid_num(v) -> bool:
+		try:
+			return float(v) > 0
+		except Exception:
+			return False
+
+	if not _valid_num(existing_yield):
+		price_v = _to_float(out.get("price"))
+		ann_v = _to_float(out.get("estimatedAnnualRent"))
+		if price_v > 0 and ann_v > 0:
+			out["yield"] = round((ann_v / price_v) * 100.0, 2)
+
+	# 3) isHighYield
+	if not isinstance(out.get("isHighYield"), bool):
+		yv = _to_float(out.get("yield"))
+		if yv > 0:
+			out["isHighYield"] = True if yv >= 8.0 else False
+
 	return out
 
 
