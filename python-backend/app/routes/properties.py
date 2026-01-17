@@ -1,6 +1,7 @@
 import json
 from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from pathlib import Path
 
@@ -11,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data"
 EXPORTS_DIR = DATA_DIR / "exports"
 FALLBACK_FILE = DATA_DIR / "properties.json"
+MEDIA_CACHE_DIR = BASE_DIR / "media_cache"
 
 
 class Property(BaseModel):
@@ -83,6 +85,19 @@ def _load_properties() -> List[dict]:
 			return fallback
 
 	return []
+	
+
+@router.get("/images/{filename}")
+def get_cached_image(filename: str):
+        # block path traversal
+        if not filename or ".." in filename or "/" in filename or "\\" in filename:
+                raise HTTPException(status_code=400, detail="Invalid filename")
+
+        file_path = MEDIA_CACHE_DIR / filename
+        if not file_path.exists() or not file_path.is_file():
+                raise HTTPException(status_code=404, detail="Not Found")
+
+        return FileResponse(str(file_path), media_type="image/jpeg")
 
 
 @router.get("/properties")
