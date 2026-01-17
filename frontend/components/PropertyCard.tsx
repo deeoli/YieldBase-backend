@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Property } from '@/types/property';
 import { formatPrice } from '@/lib/formatUtils';
 import { getFallbackImage } from '@/lib/imageUtils';
-import { SCRAPER_API_BASE_URL } from '@/lib/constants';
 
 interface PropertyCardProps {
   property: Property;
@@ -16,8 +15,8 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
   const isHighYield = property.isHighYield ?? ((property.yield || 0) >= 8);
   const fallbackImage = getFallbackImage(property.id);
   
-  // Build image candidates in priority (no fallback in this list):
-  // A) cached single image_path -> `${SCRAPER_API_BASE_URL}/images/<filename>`
+  // Build image candidates in priority:
+  // A) cached single image_path -> `/api/images/<filename>`
   // B) cached image_paths[] -> same conversion
   // C) remote main image (property.image) with cache-buster if Rightmove
   // D) remote gallery images (property.images) with cache-buster if Rightmove
@@ -27,7 +26,7 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
     url.includes('media.rightmove.co.uk') ? (url.includes('?') ? `${url}&cb=${property.id}` : `${url}?cb=${property.id}`) : url;
   const toCachedUrl = (p: string) => {
     const file = (p || '').split(/[\\\\/]/).pop() as string || '';
-    return file ? `${SCRAPER_API_BASE_URL}/images/${encodeURIComponent(file)}` : '';
+    return file ? `/api/images/${encodeURIComponent(file)}` : '';
   };
   if (typeof raw?.image_path === 'string' && raw.image_path) {
     const u = toCachedUrl(raw.image_path);
@@ -55,6 +54,8 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
       }
     }
   }
+  // Append final fallback
+  candidates.push(fallbackImage);
   const isAllowedUrl = (u: string) =>
     (u.startsWith('http') || u.startsWith('/api/images/')) && !u.includes('media_cache') && !u.includes('\\');
   const allImages = Array.from(new Set(candidates.filter(isAllowedUrl)));
