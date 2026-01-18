@@ -19,8 +19,17 @@ def main():
     with open("config/rightmove.yaml", "r") as f:
         config = yaml.safe_load(f)
 
-    start_url = config["start_url"]
-    crawler = BrowserCrawler(base_url=start_url, config=config)
+    # Prefer seed_urls (new format), fallback to start_url (legacy)
+    seed_urls = config.get("seed_urls") or []
+    if seed_urls and isinstance(seed_urls, list):
+        base_url = (seed_urls[0] or {}).get("url")
+    else:
+        base_url = config.get("start_url")
+
+    if not base_url:
+        raise ValueError("No start URL found in config (expected seed_urls or start_url)")
+
+    crawler = BrowserCrawler(base_url=base_url, config=config)
 
     # 🕷️ Crawl listings
     listings = crawler.crawl(pages=args.pages)
