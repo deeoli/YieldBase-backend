@@ -1,6 +1,56 @@
 site: rightmove
 
-start_url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E93917"
+seed_urls:
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^93917"
+    tags: ["manchester","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1087"
+    tags: ["liverpool","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1783"
+    tags: ["leeds","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^65661"
+    tags: ["birmingham","student","university","hmo","btl","auction","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^20417"
+    tags: ["nottingham","student","university","hmo","btl","discount","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1624"
+    tags: ["sheffield","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^68599"
+    tags: ["glasgow","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^8267"
+    tags: ["newcastle","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^48546"
+    tags: ["leicester","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^55341"
+    tags: ["cardiff","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^47504"
+    tags: ["edinburgh","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^83527"
+    tags: ["coventry","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1547"
+    tags: ["london","student","university","hmo","btl","luxury","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^25575"
+    tags: ["portsmouth","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^39373"
+    tags: ["swansea","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^86976"
+    tags: ["bristol","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^91993"
+    tags: ["aberdeen","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^96644"
+    tags: ["exeter","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^93423"
+    tags: ["brighton","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^97662"
+    tags: ["southampton","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^86638"
+    tags: ["bath","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^97810"
+    tags: ["oxford","student","university","hmo","btl","premium","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^97811"
+    tags: ["cambridge","student","university","hmo","btl","premium","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^96471"
+    tags: ["york","student","university","hmo","btl","yield"]
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^94933"
+    tags: ["loughborough","student","university","hmo","btl","yield"]
 
 selectors:
   item: "div.propertyCard-details"
