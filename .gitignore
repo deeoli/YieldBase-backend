@@ -1,6 +1,13 @@
 # Local artifacts
 props.json
 python-backend/props.json
+repo_files.txt
+page_*.png
+temp.jpg
+sample-html.txt
+scrap.txt
+scraper_log.txt
+*.log
 
 # Python
 .venv/
@@ -23,3 +30,10 @@ python-backend/.env.*
 # Scraper runtime outputs
 python-backend/data/exports/*.json
 python-backend/media_cache/
+
+# Root media cache (keep placeholder only)
+/media_cache/*
+!/media_cache/.gitkeep
+
+# Root exports (if present)
+data/exports/*.json

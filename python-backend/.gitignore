@@ -17,3 +17,11 @@ venv/
 *.zip
 _archive_*/
 .env
+
+# cached images
+media_cache/*
+!media_cache/.gitkeep
+
+# scraper exports (keep folder, ignore jsons)
+data/exports/*.json
+!data/exports/.gitkeep
