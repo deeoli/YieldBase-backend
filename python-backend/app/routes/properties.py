@@ -1,6 +1,7 @@
 import json
 from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from pathlib import Path
 
@@ -134,6 +135,23 @@ def get_property(property_id: str):
 		if str(p.get("id")) == str(property_id):
 			return p
 	raise HTTPException(status_code=404, detail="Property not found")
+
+
+@router.get("/images/{filename}")
+def get_image(filename: str):
+	safe = Path(filename).name
+	if safe != filename:
+		raise HTTPException(status_code=400, detail="Invalid filename")
+
+	backend_root = Path(__file__).resolve().parents[2]  # python-backend/
+	p1 = backend_root / "media_cache" / safe
+	p2 = backend_root.parent / "media_cache" / safe
+
+	if p1.exists():
+		return FileResponse(str(p1))
+	if p2.exists():
+		return FileResponse(str(p2))
+	raise HTTPException(status_code=404, detail="Not Found")
 
 
 @router.get("/debug/source")

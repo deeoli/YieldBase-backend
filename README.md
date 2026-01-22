@@ -1,5 +1,6 @@
 ## YieldBase
-
+(📘 For a full system walkthrough and architecture details, see YIELDBASE_HOW_IT_WORKS.md.
+)
 YieldBase is a property investment discovery tool. It aggregates listings, normalizes data, and presents yield-focused insights so investors can quickly evaluate opportunities.
 
 - Live (local dev): Next.js 14 frontend + FastAPI backend (JSON-backed), with cached images served from the backend.
