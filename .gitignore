@@ -37,3 +37,5 @@ python-backend/media_cache/
 
 # Root exports (if present)
 data/exports/*.json
+.cursor/
+*.backup
