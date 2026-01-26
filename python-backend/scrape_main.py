@@ -74,7 +74,9 @@ def main():
         
         try:
             crawler = BrowserCrawler(base_url=url, config=config)
-            listings = crawler.crawl(pages=args.pages)
+            # Pass limit to crawler for per-seed limiting (before enrichment)
+            per_seed_limit = args.limit if args.limit and args.limit > 0 else None
+            listings = crawler.crawl(pages=args.pages, limit=per_seed_limit)
             
             # Add tags
             for listing in listings:
@@ -87,9 +89,8 @@ def main():
             print(f"✗ ERROR: {e}")
             continue
 
-    # Optional limit for quick test runs
-    if args.limit > 0:
-        all_listings = all_listings[:args.limit]
+    # Note: --limit is now applied per-seed (before enrichment)
+    # No global limit needed here
 
     print(f"\n{'='*70}")
     print(f"Total: {len(all_listings)} properties")

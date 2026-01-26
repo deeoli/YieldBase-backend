@@ -10,7 +10,7 @@ class BrowserCrawler:
         self.base_url = base_url
         self.config = config
 
-    def crawl(self, pages=1):
+    def crawl(self, pages=1, limit=None):
         all_listings = []
 
         with sync_playwright() as p:
@@ -42,6 +42,15 @@ class BrowserCrawler:
 
                 html = page.content()
                 listings = extract_data(html, self.config)
+
+                # Apply per-seed limit BEFORE enrichment
+                if limit is not None:
+                    try:
+                        limit = int(limit)
+                        if limit > 0:
+                            listings = listings[:limit]
+                    except (ValueError, TypeError):
+                        pass
 
                 for i, listing in enumerate(listings):
                     print(f"\n🔍 [DETAIL] Enriching listing {i+1}/{len(listings)}")
