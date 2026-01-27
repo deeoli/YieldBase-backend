@@ -41,6 +41,15 @@ export function normalizeImageUrl(url: string | null | undefined, fallback?: str
     return `${baseUrl}${url}`;
   }
   
+  // Handle bare filenames (assume they're cached images)
+  // Convert "filename.jpg" to "{API_BASE}/api/images/filename.jpg"
+  if (!url.includes('/') && !url.includes('\\')) {
+    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
+      ? SCRAPER_API_BASE_URL.slice(0, -1) 
+      : SCRAPER_API_BASE_URL;
+    return `${baseUrl}/api/images/${url}`;
+  }
+  
   return url;
 }
 
