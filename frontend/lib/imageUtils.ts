@@ -61,7 +61,7 @@ export function getFallbackImageSet(propertyId: string, count: number = 4): stri
 }
 
 /**
- * Process property images array - normalize URLs and add fallbacks if needed
+ * Process property images array - normalize URLs, dedupe, and add fallbacks if needed
  */
 export function processPropertyImages(
   images: string[] | null | undefined,
@@ -78,6 +78,9 @@ export function processPropertyImages(
     .map(img => normalizeImageUrl(img, defaultFallback))
     .filter(img => img && img.trim() !== '');
   
-  return normalized.length > 0 ? normalized : getFallbackImageSet(propertyId, 4);
+  // Deduplicate images while preserving order
+  const deduped = Array.from(new Set(normalized));
+  
+  return deduped.length > 0 ? deduped : getFallbackImageSet(propertyId, 4);
 }
 
