@@ -9,6 +9,28 @@ import argparse
 from pathlib import Path
 
 
+def apply_config_vars(url_template, config_vars):
+    """Replace {placeholders} in URL with config values. Safe: doesn't crash."""
+    if not config_vars:
+        return url_template
+    try:
+        return url_template.format(**config_vars)
+    except KeyError:
+        return url_template
+
+
+def dedupe_by_id(listings):
+    """Remove duplicates by ID."""
+    seen = set()
+    deduped = []
+    for item in listings:
+        item_id = item.get("id")
+        if item_id and item_id not in seen:
+            seen.add(item_id)
+            deduped.append(item)
+    return deduped
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--pages", type=int, default=2)
@@ -19,24 +41,59 @@ def main():
     with open("config/rightmove.yaml", "r") as f:
         config = yaml.safe_load(f)
 
-    # Prefer seed_urls (new format), fallback to start_url (legacy)
+    # Get seed URLs and config vars
     seed_urls = config.get("seed_urls") or []
-    if seed_urls and isinstance(seed_urls, list):
-        base_url = (seed_urls[0] or {}).get("url")
-    else:
+    config_vars = config.get("config", {})
+    
+    if not seed_urls:
+        # Fallback to legacy start_url
         base_url = config.get("start_url")
+        if not base_url:
+            raise ValueError("No seed_urls or start_url in config")
+        seed_urls = [{"url": base_url, "tags": []}]
 
-    if not base_url:
-        raise ValueError("No start URL found in config (expected seed_urls or start_url)")
+    print(f"YieldBase Scraper: {len(seed_urls)} seeds, {args.pages} pages each")
+    print(f"Config vars: {config_vars}")
+    print("-" * 70)
 
-    crawler = BrowserCrawler(base_url=base_url, config=config)
+    all_listings = []
 
-    # 🕷️ Crawl listings
-    listings = crawler.crawl(pages=args.pages)
+    # 🕷️ Crawl each seed URL
+    for idx, seed_entry in enumerate(seed_urls, 1):
+        url_template = seed_entry.get("url")
+        tags = seed_entry.get("tags", [])
+        
+        if not url_template:
+            continue
+        
+        # Apply config substitution
+        url = apply_config_vars(url_template, config_vars)
+        
+        print(f"\n[SEED {idx}/{len(seed_urls)}] {tags[0] if tags else 'unknown'}")
+        print(f"URL: {url[:75]}...")
+        
+        try:
+            crawler = BrowserCrawler(base_url=url, config=config)
+            # Pass limit to crawler for per-seed limiting (before enrichment)
+            per_seed_limit = args.limit if args.limit and args.limit > 0 else None
+            listings = crawler.crawl(pages=args.pages, limit=per_seed_limit)
+            
+            # Add tags
+            for listing in listings:
+                listing["tags"] = tags
+            
+            all_listings.extend(listings)
+            print(f"✓ Collected {len(listings)} properties")
+            
+        except Exception as e:
+            print(f"✗ ERROR: {e}")
+            continue
 
-    # Optional limit for quick test runs
-    if args.limit > 0:
-        listings = listings[:args.limit]
+    # Note: --limit is now applied per-seed (before enrichment)
+    # No global limit needed here
+
+    print(f"\n{'='*70}")
+    print(f"Total: {len(all_listings)} properties")
 
     # 🔄 Normalize listings for stable backend/frontend schema
     def normalize_listing(x: dict) -> dict:
@@ -74,10 +131,17 @@ def main():
 
         return y
 
-    listings = [normalize_listing(l) for l in listings]
+    listings = [normalize_listing(l) for l in all_listings]
+    
+    # Dedupe
+    deduped = dedupe_by_id(listings)
+    dups = len(listings) - len(deduped)
+    if dups > 0:
+        print(f"Removed {dups} duplicates")
+    print(f"Final: {len(deduped)} unique properties")
 
     # 💾 Write export
-    write_to_json(listings, filename_prefix="rightmove")
+    write_to_json(deduped, filename_prefix="rightmove")
 
     # 🧹 Keep only the most recent 10 export files (fail silently)
     try:

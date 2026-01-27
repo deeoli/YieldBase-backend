@@ -1,70 +1,79 @@
 site: rightmove
 
+# INVESTMENT GRADE CONFIG (change once, applies everywhere)
+config:
+  max_price_tier1: 200000
+  max_price_tier2: 180000
+  max_price_tier3: 150000
+  max_price_premium: 250000
+  min_beds_standard: 1
+  min_beds_hmo: 2
+
 seed_urls:
   # TIER 1: BEST YIELD AREAS (Northern Powerhouse)
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^93917&maxPrice=200000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^93917&maxPrice={max_price_tier1}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["manchester","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1087&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1087&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["liverpool","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1783&maxPrice=200000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1783&maxPrice={max_price_tier1}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["leeds","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^8267&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^8267&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["newcastle","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1624&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1624&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["sheffield","high-yield","student","hmo","btl"]
 
   # TIER 2: STRONG STUDENT MARKETS
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^20417&maxPrice=180000&minBedrooms=2"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^20417&maxPrice={max_price_tier2}&minBedrooms={min_beds_hmo}&propertyTypes=flat,terraced,semi-detached"
     tags: ["nottingham","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^48546&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^48546&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["leicester","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^94933&maxPrice=200000&minBedrooms=2"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^94933&maxPrice={max_price_tier1}&minBedrooms={min_beds_hmo}&propertyTypes=flat,terraced,semi-detached"
     tags: ["loughborough","high-yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^83527&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^83527&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["coventry","high-yield","student","hmo","btl"]
 
   # TIER 3: MIDLANDS & EMERGING MARKETS
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^65661&maxPrice=200000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^65661&maxPrice={max_price_tier1}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["birmingham","yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^876&maxPrice=150000&minBedrooms=2"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^876&maxPrice={max_price_tier3}&minBedrooms={min_beds_hmo}&propertyTypes=flat,terraced,semi-detached"
     tags: ["stoke","high-yield","regeneration","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^971&maxPrice=120000&minBedrooms=2"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^971&maxPrice={max_price_tier3}&minBedrooms={min_beds_hmo}&propertyTypes=flat,terraced,semi-detached"
     tags: ["hull","high-yield","regeneration","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1394&maxPrice=150000&minBedrooms=2"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^1394&maxPrice={max_price_tier3}&minBedrooms={min_beds_hmo}&propertyTypes=flat,terraced,semi-detached"
     tags: ["sunderland","high-yield","regeneration","btl"]
 
   # TIER 4: SCOTLAND (Good Yields + Student Markets)
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^68599&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^68599&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["glasgow","yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^47504&maxPrice=250000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^47504&maxPrice={max_price_premium}&minBedrooms={min_beds_standard}&propertyTypes=flat,maisonette"
     tags: ["edinburgh","student","hmo","btl","lower-yield","capital-growth"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^91993&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^91993&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,semi-detached"
     tags: ["aberdeen","yield","btl"]
 
   # TIER 5: WALES (Affordable + Emerging)
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^55341&maxPrice=180000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^55341&maxPrice={max_price_tier2}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced,semi-detached"
     tags: ["cardiff","yield","student","hmo","btl"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^39373&maxPrice=150000&minBedrooms=2"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^39373&maxPrice={max_price_tier3}&minBedrooms={min_beds_hmo}&propertyTypes=flat,terraced,semi-detached"
     tags: ["swansea","high-yield","student","btl"]
 
   # TIER 6: SOUTH (Lower Yields, Capital Growth)
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^86976&maxPrice=250000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^86976&maxPrice={max_price_premium}&minBedrooms={min_beds_standard}&propertyTypes=flat,maisonette"
     tags: ["bristol","yield","student","btl","lower-yield","capital-growth"]
   
-  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^25575&maxPrice=220000&minBedrooms=1"
+  - url: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION^25575&maxPrice={max_price_premium}&minBedrooms={min_beds_standard}&propertyTypes=flat,terraced"
     tags: ["portsmouth","yield","student","btl","lower-yield"]
 
 selectors:
