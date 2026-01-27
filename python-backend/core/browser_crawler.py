@@ -69,7 +69,8 @@ class BrowserCrawler:
                     if thumb_url:
                         path = self._download_thumbnail(page, thumb_url)
                         if path:
-                            listing["image_path"] = path
+                            listing["image"] = path  # Use cached filename instead of Rightmove URL
+                            listing["image_path"] = path  # Keep for backwards compatibility
 
                     # ✅ Gallery thumbnails
                     thumb_paths = []
@@ -80,7 +81,8 @@ class BrowserCrawler:
                         path = self._download_thumbnail(page, t_url)
                         if path:
                             thumb_paths.append(path)
-                    listing["image_paths"] = thumb_paths
+                    listing["images"] = thumb_paths  # Use cached filenames instead of Rightmove URLs
+                    listing["image_paths"] = thumb_paths  # Keep for backwards compatibility
 
                 print(f"\n✅ [INFO] Extracted {len(listings)} listings from page {page_num + 1}")
                 all_listings.extend(listings)
