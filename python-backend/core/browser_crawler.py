@@ -2,6 +2,7 @@ from playwright.sync_api import sync_playwright
 import os
 import time
 import random
+from pathlib import Path
 from core.extractor import extract_data
 from core.detail_scraper import scrape_detail_page
 
@@ -69,20 +70,22 @@ class BrowserCrawler:
                     if thumb_url:
                         path = self._download_thumbnail(page, thumb_url)
                         if path:
-                            listing["image"] = path  # Use cached filename instead of Rightmove URL
-                            listing["image_path"] = path  # Keep for backwards compatibility
+                            listing["image"] = Path(path).name  # Just filename, no directory
+                            listing["image_path"] = path  # Keep full path for backwards compatibility
 
                     # ✅ Gallery thumbnails
                     thumb_paths = []
+                    thumb_filenames = []
                     for url in listing.get("images", []):
                         if not url:
                             continue
                         t_url = url.replace("max_1024x768", "max_476x317")
                         path = self._download_thumbnail(page, t_url)
                         if path:
-                            thumb_paths.append(path)
-                    listing["images"] = thumb_paths  # Use cached filenames instead of Rightmove URLs
-                    listing["image_paths"] = thumb_paths  # Keep for backwards compatibility
+                            thumb_paths.append(path)  # Full path
+                            thumb_filenames.append(Path(path).name)  # Just filename
+                    listing["images"] = thumb_filenames  # Just filenames for frontend
+                    listing["image_paths"] = thumb_paths  # Keep full paths for backwards compatibility
 
                 print(f"\n✅ [INFO] Extracted {len(listings)} listings from page {page_num + 1}")
                 all_listings.extend(listings)
