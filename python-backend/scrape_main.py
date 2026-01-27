@@ -116,6 +116,39 @@ def main():
         digits = re.findall(r"\d+", raw)
         y["price"] = int("".join(digits)) if digits else 0
 
+        # city → derive from tags (first tag is always the city)
+        tags = y.get("tags", [])
+        if tags and len(tags) > 0:
+            # Capitalize first letter of city name
+            city_raw = str(tags[0])
+            y["city"] = city_raw.capitalize()
+        elif not y.get("city"):
+            # Fallback: try to extract from address
+            address = str(y.get("address", ""))
+            if "," in address:
+                # Address format often: "Street, City, Postcode"
+                parts = [p.strip() for p in address.split(",")]
+                if len(parts) >= 2:
+                    y["city"] = parts[-2]  # Second to last is usually city
+                else:
+                    y["city"] = parts[0] if parts else ""
+            else:
+                y["city"] = ""
+
+        # currency (always GBP for Rightmove)
+        if not y.get("currency"):
+            y["currency"] = "GBP"
+
+        # postcode → extract from address if not present
+        if not y.get("postcode"):
+            address = str(y.get("address", ""))
+            # UK postcode pattern (simplified)
+            postcode_match = re.search(r"\b[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}\b", address, re.IGNORECASE)
+            if postcode_match:
+                y["postcode"] = postcode_match.group(0).upper()
+            else:
+                y["postcode"] = ""
+
         # beds / baths mapping
         if "bedrooms" in y:
             try:

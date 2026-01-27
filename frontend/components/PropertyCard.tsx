@@ -82,7 +82,11 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
       </div>
       <div className="p-6">
         <div className="text-sm text-text-muted mb-1">
-          {property.city}, {property.postcode}
+          {property.city && property.city !== 'Unknown' && property.postcode 
+            ? `${property.city}, ${property.postcode}`
+            : property.city && property.city !== 'Unknown'
+            ? property.city
+            : property.postcode || ''}
         </div>
         <h3 className="text-lg font-heading font-semibold text-text-dark mb-2 line-clamp-2">
           {property.title}
