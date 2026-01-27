@@ -76,7 +76,11 @@ export function processPropertyImages(
   
   const normalized = images
     .map(img => normalizeImageUrl(img, defaultFallback))
-    .filter(img => img && img.trim() !== '');
+    .filter(img =>
+      img &&
+      img.trim() !== '' &&
+      !img.includes('media.rightmove.co.uk')  // Block hotlinked Rightmove images (they 404)
+    );
   
   // Deduplicate images while preserving order
   const deduped = Array.from(new Set(normalized));
