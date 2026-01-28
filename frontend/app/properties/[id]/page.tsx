@@ -399,7 +399,7 @@ export default function PropertyDetailPage() {
                     const form = document.getElementById('enquiry-form');
                     form?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="flex-1 bg-primary-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
+                  className="w-full bg-primary-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
                 >
                   Enquire About This Property
                 </button>
