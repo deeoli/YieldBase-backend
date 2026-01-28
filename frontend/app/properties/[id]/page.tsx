@@ -399,20 +399,10 @@ export default function PropertyDetailPage() {
                     const form = document.getElementById('enquiry-form');
                     form?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="flex-1 bg-primary-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
+                  className="w-full bg-primary-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
                 >
                   Enquire About This Property
                 </button>
-                {property.sourceUrl && (
-                  <a
-                    href={property.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-accent-gold text-primary-navy px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors text-center"
-                  >
-                    View Original Listing
-                  </a>
-                )}
               </div>
             </div>
           </div>

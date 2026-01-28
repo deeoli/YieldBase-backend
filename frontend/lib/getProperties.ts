@@ -53,7 +53,7 @@ function normalizeProperty(data: any): Property {
     description: data.description || data.details || '',
     image: mainImage,
     images: imageGallery,
-    sourceUrl: data.sourceUrl || data.originalListingUrl || data.url || '#',
+    sourceUrl: '#', // launch: hide external listing links (Rightmove etc.)
     isHighYield: normalizedYield !== undefined ? normalizedYield >= 8 : Boolean(data.isHighYield),
     floorArea: data.floorArea ? Number(data.floorArea) : undefined,
     estimatedMonthlyRent: data.estimatedRent
