@@ -403,16 +403,6 @@ export default function PropertyDetailPage() {
                 >
                   Enquire About This Property
                 </button>
-                {property.sourceUrl && (
-                  <a
-                    href={property.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-accent-gold text-primary-navy px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors text-center"
-                  >
-                    View Original Listing
-                  </a>
-                )}
               </div>
             </div>
           </div>
@@ -498,13 +488,49 @@ export default function PropertyDetailPage() {
         </div>
       )}
 
+      {/* Property Features */}
+      {property.features && property.features.length > 0 && (
+        <div className="bg-background-light py-12 border-t border-border-grey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-heading font-bold text-text-dark mb-6">
+              Key Features
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {property.features.map((feature, index) => (
+                <li key={index} className="flex items-start">
+                  <svg className="w-5 h-5 text-accent-gold mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-text-muted">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
       {/* Location */}
       <div className="bg-white py-12 border-t border-border-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-heading font-bold text-text-dark mb-4">
+          <h2 className="text-2xl font-heading font-bold text-text-dark mb-6">
             Location
           </h2>
-          <p className="text-text-muted">{property.address}</p>
+          <p className="text-text-muted mb-6">{property.address}</p>
+          
+          {/* Google Map */}
+          {property.postcode && (
+            <div className="w-full h-96 rounded-xl overflow-hidden border border-border-grey">
+              <iframe
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(property.postcode + ', UK')}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+              />
+            </div>
+          )}
         </div>
       </div>
 
