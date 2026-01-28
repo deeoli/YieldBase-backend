@@ -25,29 +25,30 @@ export function normalizeImageUrl(url: string | null | undefined, fallback?: str
     return url;
   }
   
-  // If it's a backend image path (/images/...), prepend the backend base URL
-  if (url.startsWith('/images/')) {
-    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
-      ? SCRAPER_API_BASE_URL.slice(0, -1) 
-      : SCRAPER_API_BASE_URL;
-    return `${baseUrl}${url}`;
+  // Get base URL (strip trailing slash)
+  let baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
+    ? SCRAPER_API_BASE_URL.slice(0, -1) 
+    : SCRAPER_API_BASE_URL;
+  
+  // Handle /api/images/ paths - already complete, just prepend base
+  if (url.startsWith('/api/images/')) {
+    // Strip /api from base if present (don't double up)
+    const cleanBase = baseUrl.endsWith('/api') ? baseUrl.slice(0, -4) : baseUrl;
+    return `${cleanBase}${url}`;
   }
   
-  // Handle /api/images/ paths
-  if (url.startsWith('/api/images/')) {
-    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
-      ? SCRAPER_API_BASE_URL.slice(0, -1) 
-      : SCRAPER_API_BASE_URL;
-    return `${baseUrl}${url}`;
+  // Handle /images/ paths - need to add /api prefix
+  if (url.startsWith('/images/')) {
+    // If base already has /api, use as-is, else add it
+    const apiBase = baseUrl.endsWith('/api') ? baseUrl : `${baseUrl}/api`;
+    return `${apiBase}${url}`;
   }
   
   // Handle bare filenames (assume they're cached images)
-  // Convert "filename.jpg" to "{API_BASE}/api/images/filename.jpg"
+  // Convert "filename.jpg" to "{BASE}/images/filename.jpg"
   if (!url.includes('/') && !url.includes('\\')) {
-    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
-      ? SCRAPER_API_BASE_URL.slice(0, -1) 
-      : SCRAPER_API_BASE_URL;
-    return `${baseUrl}/api/images/${url}`;
+    // baseUrl already has /api, just add /images
+    return `${baseUrl}/images/${url}`;
   }
   
   return url;
