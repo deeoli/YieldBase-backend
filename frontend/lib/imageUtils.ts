@@ -89,7 +89,7 @@ export function processPropertyImages(
     .filter(img =>
       img &&
       img.trim() !== '' &&
-      !img.includes('media.rightmove.co.uk')  // Block hotlinked Rightmove images (they 404)
+      !img.includes('media.rightmove.co.uk')  // Filter external hotlinked images
     );
   
   // Deduplicate images while preserving order
