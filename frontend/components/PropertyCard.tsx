@@ -45,10 +45,11 @@ export default function PropertyCard({ property, showEnquire = true, onEnquire }
     }
   };
 
-  // Use regular img tag for external or backend images to avoid Next.js optimization issues
-  const isExternalImage = imgSrc.includes('media.rightmove.co.uk');
+  // Check if image URL is from Rightmove (might be expired/404) or backend
+  // Use regular img tag for Rightmove images and backend images to avoid Next.js optimization issues
+  const isRightmoveImage = imgSrc.includes('media.rightmove.co.uk');
   const isBackendImage = imgSrc.includes('/api/images/');
-  const useRegularImg = isExternalImage || isBackendImage;
+  const useRegularImg = isRightmoveImage || isBackendImage;
 
   return (
     <div className="bg-card-bg rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
