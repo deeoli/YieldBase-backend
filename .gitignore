@@ -39,3 +39,7 @@ python-backend/media_cache/
 data/exports/*.json
 .cursor/
 *.backup
+
+# Local docs (not committed)
+BRANCH_STRATEGY.md
+RELEASE_PLAN.md

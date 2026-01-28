@@ -25,20 +25,30 @@ export function normalizeImageUrl(url: string | null | undefined, fallback?: str
     return url;
   }
   
-  // If it's a backend image path (/images/...), prepend the backend base URL
-  if (url.startsWith('/images/')) {
-    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
-      ? SCRAPER_API_BASE_URL.slice(0, -1) 
-      : SCRAPER_API_BASE_URL;
-    return `${baseUrl}${url}`;
+  // Get base URL (strip trailing slash)
+  let baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
+    ? SCRAPER_API_BASE_URL.slice(0, -1) 
+    : SCRAPER_API_BASE_URL;
+  
+  // Handle /api/images/ paths - already complete, just prepend base
+  if (url.startsWith('/api/images/')) {
+    // Strip /api from base if present (don't double up)
+    const cleanBase = baseUrl.endsWith('/api') ? baseUrl.slice(0, -4) : baseUrl;
+    return `${cleanBase}${url}`;
   }
   
-  // Handle /api/images/ paths
-  if (url.startsWith('/api/images/')) {
-    const baseUrl = SCRAPER_API_BASE_URL.endsWith('/') 
-      ? SCRAPER_API_BASE_URL.slice(0, -1) 
-      : SCRAPER_API_BASE_URL;
-    return `${baseUrl}${url}`;
+  // Handle /images/ paths - need to add /api prefix
+  if (url.startsWith('/images/')) {
+    // If base already has /api, use as-is, else add it
+    const apiBase = baseUrl.endsWith('/api') ? baseUrl : `${baseUrl}/api`;
+    return `${apiBase}${url}`;
+  }
+  
+  // Handle bare filenames (assume they're cached images)
+  // Convert "filename.jpg" to "{BASE}/images/filename.jpg"
+  if (!url.includes('/') && !url.includes('\\')) {
+    // baseUrl already has /api, just add /images
+    return `${baseUrl}/images/${url}`;
   }
   
   return url;
@@ -61,7 +71,7 @@ export function getFallbackImageSet(propertyId: string, count: number = 4): stri
 }
 
 /**
- * Process property images array - normalize URLs and add fallbacks if needed
+ * Process property images array - normalize URLs, dedupe, and add fallbacks if needed
  */
 export function processPropertyImages(
   images: string[] | null | undefined,
@@ -76,8 +86,15 @@ export function processPropertyImages(
   
   const normalized = images
     .map(img => normalizeImageUrl(img, defaultFallback))
-    .filter(img => img && img.trim() !== '');
+    .filter(img =>
+      img &&
+      img.trim() !== '' &&
+      !img.includes('media.rightmove.co.uk')  // Block hotlinked Rightmove images (they 404)
+    );
   
-  return normalized.length > 0 ? normalized : getFallbackImageSet(propertyId, 4);
+  // Deduplicate images while preserving order
+  const deduped = Array.from(new Set(normalized));
+  
+  return deduped.length > 0 ? deduped : getFallbackImageSet(propertyId, 4);
 }
 
